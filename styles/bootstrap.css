@@ -96,7 +96,7 @@ img {
   border: 0;
 }
 img.resize{
-    width:100%; /* you can use % */
+    width:100%;
     height: auto;
 }
 svg:not(:root) {
