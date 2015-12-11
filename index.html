@@ -59,22 +59,21 @@
                 <p>Model bør skilles ut i en separat pakke fremfor å inkluderes i en pakke hvor det også befinner seg programlogikk. Disse logikklassene burde forøvrig vært flyttet til <em>controller</em>-pakken. Dette ville bidratt til at koden hadde fått høyere grad av kohesjon <a href="#Referanser">(Holmstedt, 2004, s. 269)</a>.</p>
             </section>
 
-			<section>
-				<h1 id="Endring-problematikk">Endring av data problematikk</h1>
-				<p class="lead">Utvikleren har laget en endring lønsing som ikke fungerer optimalt.</p>
+            <section>
+				      <h1 id="Endring-problematikk">Problematikk ved dataendring</h1>
+			         	<p class="lead">Funksjonaliteten for å endre data og struktur i dokumentdatabasen følger ikke prinsipper om <em>usability</em></p>
 
-                <p>Analyse av programmet viser problematikk med måten brukeren endrer eksisterende data på. Det tas utgangspunkt i at bruker har søket opp data som skal endres. Da bruker trykker "Lagre endringer" skjer det ingen ting.
-				Utvikler ser at feilmelding kommer, men bruker får ingen informasjon om denne feilmeldingen. Programmet stopper da opp og gjør ingen endringer.
-				Sekvensdiagrammet under ilustrerer problemet.  </p>
-                <p></p>
-                <a href="SequenceDiagramLagreFeil.svg" target="_blank"><img class ="resize" src="diagrammer/SequenceDiagramLagreFeil.svg" /> </a>
-                <p>Dette skylles at det mangler en databasetilkobling, denne tilkoblingen blir opprettet et annet sted i programmet.</p>
-			</section>
+                <p>Bruk av programmet viser problemer i programflyten når det gjelder hvordan det håndterer bruker-input i tilfellet hvor brukeren ønsker å endre data eler struktur i databasen. Det tas utgangspunkt i at bruker har søket opp data som skal endres. Når bruker trykker "Lagre endringer", skjer det ingen ting. Debug-vinduet i IDE-et avslører en programfeil, men bruker av programmet får ingen tilbakemelding om dette. Programmet gjør ingen endringer. Dette bryter med <em>principle of least astonishment</em>, som vektlegger at grensesnittkontroller og programflyt bør oppføre seg slik brukere flest forventer <a href="#Referanser">(Seebach, 2001)</a>.</p>
+                <p>Sekvensdiagrammet under illustrerer problemet:</p>
+                <a href="diagrammer/SequenceDiagramLagreFeil.svg" target="_blank"><img class ="resize" src="diagrammer/SequenceDiagramLagreFeil.svg" /></a>
+                <p>Dette skyldes at det mangler en databasetilkobling, denne tilkoblingen blir opprettet et annet sted i programmet.</p>
+            </section>
 			
             <section>
               <h1 id="Referanser">Referanser</h1>
                 <ul class="list-unstyled">
                   <li>Holmstedt, V. (2004). <em>Objektorientert systemutvikling og UML</em>. Fagbokforlaget.</li>
+                  <li>Seebach, P. (2001). <em>The principle of least astonishment</em>. IBM DeveloperWorks. <a href="http://www.ibm.com/developerworks/library/us-cranky10/" target="_blank">http://www.ibm.com/developerworks/library/us-cranky10/</a>, hentet 11.12.2015</li>
                   <li class="divider"></li>
                   <br>
                   <li>Bootstrap-tema hentet fra <a href="http://bootswatch.com/">www.bootswatch.com</a></li>
