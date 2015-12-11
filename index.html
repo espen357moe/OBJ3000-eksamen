@@ -52,13 +52,13 @@
             </section>
 
             <section>
-              <h1 id="Svak kohesjon">Svak kohesjon</h1>
-                <p class="lead">Utvikleren har ikke fulgt MVC-konvensjonene fullt ut, og har lagd en hybridløsning - noe som medfører svakere kohesjon i systemet</p>
+              <h1 id="Svak kohesjon">Lav kohesjon</h1>
+                <p class="lead">Utvikleren har ikke fulgt MVC-konvensjonene fullt ut, og har lagd en hybridløsning - noe som medfører lavere kohesjon i systemet enn det kunne vært</p>
 
-                <p>Analyse av strukturen i programkoden avslører at utvikleren har hatt tanker om å skille datagrunnlag, grensesnitt og programlogikk, noe som er et godt utgangspunkt. Imidlertid er ikke tankerekken fullført, og det viser seg at datagrunnlaget - heretter kalt <em>model</em>, ligger i en pakke som også innehar klasser for programlogikk. <em>Model</em> instansierer et <em>azureclient</em>-objekt som igjen tar seg av databaseaksess, og så danner datagrunnlaget for systemet. </p>
+                <p>Analyse av strukturen i programkoden avslører at utvikleren har hatt tanker om å skille datagrunnlag, grensesnitt og programlogikk, noe som er et godt utgangspunkt. Imidlertid er ikke tankerekken fullført, og det viser seg at datagrunnlaget - heretter kalt <em>model</em> - ligger i en pakke som også inneholder klasser for programlogikk. <em>Model</em> instansierer et <em>azureclient</em>-objekt som igjen tar seg av databaseaksess, og så danner datagrunnlaget for systemet. </p>
                 <p>Følgende klassediagram illustrerer problemet:</p>
                 <a href="diagrammer/MVC-problematikk.svg" target="_blank"><img class ="resize" src="diagrammer/MVC-problematikk.svg"/></a>
-                <p>Model bør skilles ut i en separat pakke fremfor å inkluderes i en pakke hvor det også befinner seg programlogikk. Disse logikklassene burde forøvrig vært flyttet til <em>controller</em>-pakken. En strammere tilnærming til MVC-paradigmet ville medført høyere kohesjonsgrad i programkoden <a href="#Referanser">(Holmstedt, 2004, s. 269)</a>.</p>
+                <p>De nødvendige håndgrepene for å heve kohesjonsnivået er forholdsvis enkle: <em>model</em> bør skilles ut i en separat pakke fremfor å inkluderes i en pakke hvor det også befinner seg programlogikk. Disse logikklassene burde forøvrig også vært flyttet til <em>controller</em>-pakken. En strammere tilnærming til MVC-paradigmet ville således medført høyere kohesjonsnivå i programkoden <a href="#Referanser">(Holmstedt, 2004, s. 269)</a>.</p>
             </section>
 
 			<section>
@@ -76,18 +76,16 @@
 			
             <section>
 				      <h1 id="Problematikk ved dataendring">Problematikk ved dataendring</h1>
-			         	<p class="lead">Funksjonaliteten for å endre data og struktur i dokumentdatabasen følger ikke prinsipper om <em>usability</em></p>
+			         	<p class="lead">Funksjonaliteten for å endre data og struktur i dokumentdatabasen følger ikke prinsipper for <em>usability</em> og fremstår som forvirrende for brukeren</p>
 
-
-                <p>Bruk av programmet viser problemer i programflyten når det gjelder hvordan det håndterer bruker-input i tilfellet hvor brukeren ønsker å endre data. Det tas utgangspunkt i at bruker først har søkt opp data som skal endres. Når bruker trykker "Lagre endringer", skjer det ingen ting. Debug-vinduet i IDE-et avslører en programfeil, men brukeren av programmet får ingen tilbakemelding om dette, og programmet gjør ingen endringer. Dette bryter med <em>principle of least astonishment</em>, som vektlegger at grensesnittkontroller og programflyt bør oppføre seg slik brukere flest forventer <a href="#Referanser">(Seebach, 2001)</a>.</p>
-                <p>Sekvensdiagrammet under illustrerer problemet:</p>
+                <p>Bruk av programmet viser problemer i programflyten når det gjelder hvordan det håndterer bruker-input i tilfeller hvor brukeren ønsker å endre data. Når bruker trykker "Lagre endringer", skjer det ingen ting. Debug-vinduet i IDE-et avslører en programfeil, men brukeren av programmet får ingen tilbakemelding om dette, og programmet gjør ingen endringer i databasen. Dette bryter med <em>the principle of least astonishment</em>, som vektlegger at grensesnittkontroller og programflyt bør oppføre seg slik brukere flest forventer <a href="#Referanser">(Seebach, 2001)</a>.</p>
+                <p>Sekvensdiagrammet under illustrerer problemet (det tas utgangspunkt i at bruker først har søkt opp data som skal endres):</p>
                 <a href="diagrammer/SequenceDiagram-LagreFeil.svg" target="_blank"><img class ="resize" src="diagrammer/SequenceDiagram-LagreFeil.svg" /></a>
-                <p>Grunnen til at det ikke er mulig for brukeren å endre data uten at visse uintuitive kriterier er oppfylt, er at koblingen mot databasen ikke inntreffer der det er hensiktsmessig i denne sammenheng.</p>
+                <p>Grunnen til at det ikke er mulig for brukeren å endre data uten at visse uintuitive kriterier er oppfylt, er teknisk; koblingen mot databasen inntreffer ikke der det er hensiktsmessig i denne sammenheng.</p>
                 <p>Aktivitetsdiagrammet nedenfor illustrerer hvordan det forutsettes at brukeren trykker "Legg til et datafelt" før det blir mulig å gjøre noen endringer i databasen. Databasetilkobling som tillater endring utføres ikke før denne knappen trykkes, og brukeren får ingen tilbakemelding om dette, eller noen indikasjon på at endringer som er forsøkt gjort før denne knappen er trykket på ikke har blitt lagret. Aktivitetene merket med rødt kan utledes ytterligere, men er i dette diagrammet kortet ned for leselighetens del.</p>
                 <p><a href="diagrammer/AktivitetsDiagram-LagreEndringer.svg" target="_blank"><img class ="resize" src="diagrammer\AktivitetsDiagram-LagreEndringer.svg" /> </a></p>
             </section>
-			
-			
+				
             <section>
               <h1 id="Referanser">Litteraturreferanser</h1>
                 <ul class="list-unstyled">
