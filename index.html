@@ -43,18 +43,18 @@
 
             <section>
               <h1 id="Innledning">Innledning</h1>
-                <p class="lead">Gruppeeksamen i objektorientert analyse og design ved Høgskolen i Buskerud og Vestfold vinteren 2015 gikk ut på å analysere et Java-program ved hjelp av diagrammodelleringsverktøy.</p>
+                <p class="lead">Gruppeeksamen i objektorientert analyse og design ved Høgskolen i Buskerud og Vestfold vinteren 2015 gikk ut på å analysere et Java-program ved hjelp av diagrammodelleringsverktøy</p>
                 
                 <p>Programmet er et forholdsvis enkelt program for å vise værdata fra lokasjoner. Programmet lar brukeren søke opp datafelt i en dokumentdatabase, endre innhold i disse, samt legge til og fjerne felt fra databasen. Vi har trukket ut aspekter av programmet som vi har vurdert som interessante å belyse i form av UML. Navigering i dokumentet gjøres ved å scrolle seg nedover siden, eller ved å benytte snarveiene i menyen på toppen av denne siden. Ved å klikke på bildene, vil disse åpne seg i full størrelse i nye faner.</p>
             </section>
 
             <section>
               <h1 id="MVC-problematikk">MVC-problematikk</h1>
-                <p class="lead">Utvikleren har ikke fulgt MVC-konvensjonene fullt ut, og har lagd en hybridløsning - noe som medførere svakere kohesjon i systemet.</p>
+                <p class="lead">Utvikleren har ikke fulgt MVC-konvensjonene fullt ut, og har lagd en hybridløsning - noe som medførere svakere kohesjon i systemet</p>
 
-                <p>Analyse av strukturen i programkoden avslører at utvikleren har hatt tanker om å skille datagrunnlag, grensesnitt og programlogikk, noe som er et godt utgangspunkt. Imidlertid er ikke tankerekken fullført, og det viser seg at datagrunnlaget - heretter kalt <em>model</em>, ligger i en pakke som også innehar klasser for programlogikk. <em>Model</em> instansierer et <em>azureclient</em>-objekt som igjen danner datagrunnlaget for systemet. Model burde vært adskilt i en separat pakke fremfor å inkluderes i en pakke hvor det også befinner seg programlogikk. Disse klassene burde også forøvrig vært relokert til <em>controller</em>-pakken. Dette ville bidratt til at koden hadde fått høyere grad av kohesjon <a href="#Referanser">(Holmstedt, 2004, s. 269)</a>.</p>
-
+                <p>Analyse av strukturen i programkoden avslører at utvikleren har hatt tanker om å skille datagrunnlag, grensesnitt og programlogikk, noe som er et godt utgangspunkt. Imidlertid er ikke tankerekken fullført, og det viser seg at datagrunnlaget - heretter kalt <em>model</em>, ligger i en pakke som også innehar klasser for programlogikk. <em>Model</em> instansierer et <em>azureclient</em>-objekt som igjen danner datagrunnlaget for systemet. </p>
                 <a href="diagrammer/MVC-problematikk.svg" target="_blank"><img class ="resize" src="diagrammer/MVC-problematikk.svg"/></a>
+                <p>Model burde vært adskilt i en separat pakke fremfor å inkluderes i en pakke hvor det også befinner seg programlogikk. Disse logikklassene burde forøvrig vært flyttet til <em>controller</em>-pakken. Dette ville bidratt til at koden hadde fått høyere grad av kohesjon <a href="#Referanser">(Holmstedt, 2004, s. 269)</a>.</p>
             </section>
 
             <section>
@@ -62,6 +62,7 @@
                 <ul class="list-unstyled">
                   <li>Holmstedt, V. (2004). <em>Objektorientert systemutvikling og UML</em>. Fagbokforlaget.</li>
                   <li class="divider"></li>
+                  <br>
                   <li>Bootstrap-tema hentet fra <a href="http://bootswatch.com/">www.bootswatch.com</a></li>
                   <li><a href="https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE">Bootswatch-lisens</a></li>
                 </ul>
