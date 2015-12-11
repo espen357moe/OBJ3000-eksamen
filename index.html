@@ -28,6 +28,7 @@
                 <li><a href="#Innledning">Innledning</a></li>
                 <li class="divider"></li>
                 <li><a href="#MVC-problematikk">MVC-problematikk</a></li>
+			    <li><a href="#Endring-problematikk">Endring-problematikk</a></li>
                 <li><a href="#Referanser">Referanser</a></li>
               </ul>
             </li>
@@ -58,6 +59,18 @@
                 <p>Model bør skilles ut i en separat pakke fremfor å inkluderes i en pakke hvor det også befinner seg programlogikk. Disse logikklassene burde forøvrig vært flyttet til <em>controller</em>-pakken. Dette ville bidratt til at koden hadde fått høyere grad av kohesjon <a href="#Referanser">(Holmstedt, 2004, s. 269)</a>.</p>
             </section>
 
+			<section>
+				<h1 id="Endring-problematikk">Endring av data problematikk</h1>
+				<p class="lead">Utvikleren har laget en endring lønsing som ikke fungerer optimalt.</p>
+
+                <p>Analyse av programmet viser problematikk med måten brukeren endrer eksisterende data på. Det tas utgangspunkt i at bruker har søket opp data som skal endres. Da bruker trykker "Lagre endringer" skjer det ingen ting.
+				Utvikler ser at feilmelding kommer, men bruker får ingen informasjon om denne feilmeldingen. Programmet stopper da opp og gjør ingen endringer.
+				Sekvensdiagrammet under ilustrerer problemet.  </p>
+                <p></p>
+                <a href="SequenceDiagramLagreFeil.svg" target="_blank"><img class ="resize" src="diagrammer/SequenceDiagramLagreFeil.svg" /> </a>
+                <p>Dette skylles at det mangler en databasetilkobling, denne tilkoblingen blir opprettet et annet sted i programmet.</p>
+			</section>
+			
             <section>
               <h1 id="Referanser">Referanser</h1>
                 <ul class="list-unstyled">
