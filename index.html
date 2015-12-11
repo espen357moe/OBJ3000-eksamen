@@ -27,10 +27,7 @@
               <ul class="dropdown-menu" aria-labelledby="themes">
                 <li><a href="#Innledning">Innledning</a></li>
                 <li class="divider"></li>
-                <li><a href="#Klassediagram">Klassediagram</a></li>
-                <li><a href="#Sekvensdiagram">Sekvensdiagram</a></li>
-                <li><a href="#Aktivitetsdiagram">Aktivitetsdiagram</a></li>
-                <li><a href="#Tilstandsdiagram">Tilstandsdiagram</a></li>
+                <li><a href="#MVC-problematikk">MVC-problematikk</a></li>
                 <li><a href="#Referanser">Referanser</a></li>
               </ul>
             </li>
@@ -46,82 +43,24 @@
 
             <section>
               <h1 id="Innledning">Innledning</h1>
-                <p class="lead">Dette skal være en ingress. En ingress er i hovedsak en kort oppsummering av de viktige punktene i brødteksten.</p>
+                <p class="lead">Gruppeeksamen i objektorientert analyse og design ved Høgskolen i Buskerud og Vestfold vinteren 2015 gikk ut på å analysere et Java-program ved hjelp av diagrammodelleringsverktøy.</p>
                 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nisl orci, molestie ut placerat vel, efficitur at arcu. Aenean ultricies ornare sapien eu dictum. Duis ut vestibulum ipsum. Mauris lacinia eros nibh, vel auctor elit tincidunt a. Phasellus aliquet quis urna sed pharetra. Aenean tempus turpis tortor, non tristique augue pellentesque et. Aenean a consequat ante. Nullam vel leo at purus sollicitudin molestie. Etiam convallis orci sed maximus varius. Nullam vel ante nisl. Integer porta nisl ut vehicula vulputate<a href="#Referanser"><sup>[1]</sup></a>.</p>
+                <p>Programmet er et forholdsvis enkelt program for å vise værdata fra lokasjoner. Programmet lar brukeren søke opp datafelt i en dokumentdatabase, endre innhold i disse, samt legge til og fjerne felt fra databasen. Vi har trukket ut aspekter av programmet som vi har vurdert som interessante å belyse i form av UML. Navigering i dokumentet gjøres ved å scrolle seg nedover siden, eller ved å benytte snarveiene i menyen på toppen av denne siden. Ved å klikke på bildene, vil disse åpne seg i full størrelse i nye faner.</p>
             </section>
 
             <section>
-              <h1 id="Klassediagram">Klassediagram</h1>
-                <p class="lead">Dette skal være en ingress. En ingress er i hovedsak en kort oppsummering av de viktige punktene i brødteksten.</p>
+              <h1 id="MVC-problematikk">MVC-problematikk</h1>
+                <p class="lead">Utvikleren har ikke fulgt MVC-konvensjonene fullt ut, og har lagd en hybridløsning - noe som medførere svakere kohesjon i systemet.</p>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nisl orci, molestie ut placerat vel, efficitur at arcu. Aenean ultricies ornare sapien eu dictum. Duis ut vestibulum ipsum. Mauris lacinia eros nibh, vel auctor elit tincidunt a. Phasellus aliquet quis urna sed pharetra. Aenean tempus turpis tortor, non tristique augue pellentesque et. Aenean a consequat ante<a href="#Referanser"><sup>[2]</sup></a>. Nullam vel leo at purus sollicitudin molestie. Etiam convallis orci sed maximus varius. Nullam vel ante nisl<a href="#Referanser"><sup>[3]</sup></a>. Integer porta nisl ut vehicula vulputate.</p>
+                <p>Analyse av strukturen i programkoden avslører at utvikleren har hatt tanker om å skille datagrunnlag, grensesnitt og programlogikk, noe som er et godt utgangspunkt. Imidlertid er ikke tankerekken fullført, og det viser seg at datagrunnlaget - heretter kalt <em>model</em>, ligger i en pakke som også innehar klasser for programlogikk. <em>Model</em> instansierer et <em>azureclient</em>-objekt som igjen danner datagrunnlaget for systemet. Model burde vært adskilt i en separat pakke fremfor å inkluderes i en pakke hvor det også befinner seg programlogikk. Disse klassene burde også forøvrig vært relokert til <em>controller</em>-pakken. Dette ville bidratt til at koden hadde fått høyere grad av kohesjon <a href="#Referanser">(Holmstedt, 2004, s. 269)</a>.</p>
 
-                <a href="diagrammer/GUI_klasse.svg" target="_blank"><img class ="resize" src="diagrammer/GUI_klasse.svg"/></a>
-                <em>(Klikk på bildet for å åpne i ny fane)</em>
-
-                
-                <h3>Curabitur</h3>
-                <p>Curabitur eu ornare mauris. Integer mollis mi porta magna hendrerit, sed dignissim sapien interdum. Nullam fringilla bibendum velit non condimentum. Proin lobortis nulla dui, ac tincidunt urna iaculis ut. Pellentesque egestas sit amet nulla ut suscipit. Maecenas scelerisque lectus eu felis imperdiet eleifend. Donec nisl sem, pretium id quam imperdiet, gravida pulvinar ante. Aliquam vitae mollis dolor. Donec quis neque a augue consectetur pharetra eu in nibh.</p>
-
-                <h3>Quisque sed dignissim mi</h3>
-                <p>Quisque sed dignissim mi, et maximus libero. Vivamus vel risus consectetur mi suscipit finibus. Nullam nec massa in libero rhoncus ultrices. Vivamus convallis nunc nec ipsum vulputate, ut iaculis sem consequat. Morbi quis porttitor sem. Mauris interdum tortor accumsan lorem euismod efficitur. Proin vulputate convallis arcu, varius vehicula quam hendrerit et. Aenean id ultricies urna. Cras a iaculis magna.</p>
-            </section>
-
-            <section>
-              <h1 id="Sekvensdiagram">Sekvensdiagram</h1>
-                <p class="lead">Dette skal være en ingress. En ingress er i hovedsak en kort oppsummering av de viktige punktene i brødteksten.</p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nisl orci, molestie ut placerat vel, efficitur at arcu. Aenean ultricies ornare sapien eu dictum. Duis ut vestibulum ipsum. Mauris lacinia eros nibh, vel auctor elit tincidunt a. Phasellus aliquet quis urna sed pharetra. Aenean tempus turpis tortor, non tristique augue pellentesque et. Aenean a consequat ante. Nullam vel leo at purus sollicitudin molestie. Etiam convallis orci sed maximus varius. Nullam vel ante nisl. Integer porta nisl ut vehicula vulputate.</p>
-
-                <a href="diagrammer/seq.png" target="_blank"><img class ="resize" src="diagrammer/seq.png"/></a>
-                <em>(Klikk på bildet for å åpne i ny fane)</em>
-                
-                <h3>Curabitur</h3>
-                <p>Curabitur eu ornare mauris. Integer mollis mi porta magna hendrerit, sed dignissim sapien interdum. Nullam fringilla bibendum velit non condimentum. Proin lobortis nulla dui, ac tincidunt urna iaculis ut. Pellentesque egestas sit amet nulla ut suscipit. Maecenas scelerisque lectus eu felis imperdiet eleifend. Donec nisl sem, pretium id quam imperdiet, gravida pulvinar ante. Aliquam vitae mollis dolor. Donec quis neque a augue consectetur pharetra eu in nibh.</p>
-
-                <h3>Quisque sed dignissim mi</h3>
-                <p>Quisque sed dignissim mi, et maximus libero. Vivamus vel risus consectetur mi suscipit finibus. Nullam nec massa in libero rhoncus ultrices. Vivamus convallis nunc nec ipsum vulputate, ut iaculis sem consequat. Morbi quis porttitor sem. Mauris interdum tortor accumsan lorem euismod efficitur. Proin vulputate convallis arcu, varius vehicula quam hendrerit et. Aenean id ultricies urna. Cras a iaculis magna.</p>
-            </section>
-
-            <section>
-              <h1 id="Aktivitetsdiagram">Aktivitetsdiagram</h1>
-                <p class="lead">Dette skal være en ingress. En ingress er i hovedsak en kort oppsummering av de viktige punktene i brødteksten.</p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nisl orci, molestie ut placerat vel, efficitur at arcu. Aenean ultricies ornare sapien eu dictum. Duis ut vestibulum ipsum. Mauris lacinia eros nibh, vel auctor elit tincidunt a. Phasellus aliquet quis urna sed pharetra. Aenean tempus turpis tortor, non tristique augue pellentesque et. Aenean a consequat ante. Nullam vel leo at purus sollicitudin molestie. Etiam convallis orci sed maximus varius. Nullam vel ante nisl. Integer porta nisl ut vehicula vulputate.</p>
-
-                <a href="diagrammer/act.png" target="_blank"><img class ="resize" src="diagrammer/act.png"/></a>
-                <em>(Klikk på bildet for å åpne i ny fane)</em>
-                
-                <h3>Curabitur</h3>
-                <p>Curabitur eu ornare mauris. Integer mollis mi porta magna hendrerit, sed dignissim sapien interdum. Nullam fringilla bibendum velit non condimentum. Proin lobortis nulla dui, ac tincidunt urna iaculis ut. Pellentesque egestas sit amet nulla ut suscipit. Maecenas scelerisque lectus eu felis imperdiet eleifend. Donec nisl sem, pretium id quam imperdiet, gravida pulvinar ante. Aliquam vitae mollis dolor. Donec quis neque a augue consectetur pharetra eu in nibh.</p>
-
-                <h3>Quisque sed dignissim mi</h3>
-                <p>Quisque sed dignissim mi, et maximus libero. Vivamus vel risus consectetur mi suscipit finibus. Nullam nec massa in libero rhoncus ultrices. Vivamus convallis nunc nec ipsum vulputate, ut iaculis sem consequat. Morbi quis porttitor sem. Mauris interdum tortor accumsan lorem euismod efficitur. Proin vulputate convallis arcu, varius vehicula quam hendrerit et. Aenean id ultricies urna. Cras a iaculis magna.</p>
-            </section>
-
-            <section>
-              <h1 id="Tilstandsdiagram">Tilstandsdiagram</h1>
-                <p class="lead">Dette skal være en ingress. En ingress er i hovedsak en kort oppsummering av de viktige punktene i brødteksten.</p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nisl orci, molestie ut placerat vel, efficitur at arcu. Aenean ultricies ornare sapien eu dictum. Duis ut vestibulum ipsum. Mauris lacinia eros nibh, vel auctor elit tincidunt a. Phasellus aliquet quis urna sed pharetra. Aenean tempus turpis tortor, non tristique augue pellentesque et. Aenean a consequat ante. Nullam vel leo at purus sollicitudin molestie. Etiam convallis orci sed maximus varius. Nullam vel ante nisl. Integer porta nisl ut vehicula vulputate.</p>
-
-                <a href="diagrammer/rotete.png" target="_blank"><img class ="resize" src="diagrammer/rotete.png"/></a>
-                <em>(Klikk på bildet for å åpne i ny fane)</em>
-                
-                <h3>Curabitur</h3>
-                <p>Curabitur eu ornare mauris. Integer mollis mi porta magna hendrerit, sed dignissim sapien interdum. Nullam fringilla bibendum velit non condimentum. Proin lobortis nulla dui, ac tincidunt urna iaculis ut. Pellentesque egestas sit amet nulla ut suscipit. Maecenas scelerisque lectus eu felis imperdiet eleifend. Donec nisl sem, pretium id quam imperdiet, gravida pulvinar ante. Aliquam vitae mollis dolor. Donec quis neque a augue consectetur pharetra eu in nibh.</p>
-
-                <h3>Quisque sed dignissim mi</h3>
-                <p>Quisque sed dignissim mi, et maximus libero. Vivamus vel risus consectetur mi suscipit finibus. Nullam nec massa in libero rhoncus ultrices. Vivamus convallis nunc nec ipsum vulputate, ut iaculis sem consequat. Morbi quis porttitor sem. Mauris interdum tortor accumsan lorem euismod efficitur. Proin vulputate convallis arcu, varius vehicula quam hendrerit et. Aenean id ultricies urna. Cras a iaculis magna.</p>
+                <a href="diagrammer/MVC-problematikk.svg" target="_blank"><img class ="resize" src="diagrammer/MVC-problematikk.svg"/></a>
             </section>
 
             <section>
               <h1 id="Referanser">Referanser</h1>
                 <ul class="list-unstyled">
-                  <li><sup>[1]</sup>Holmstedt, V. (2004). <em>Objektorientert systemutvikling og UML</em>. Fagbokforlaget.</li>
-                  <li><sup>[2]</sup>Hasle, T. E. (2011). <em>Systemutvikling: Applikasjoner og databaser</em>. Cappelen.</li>
-                  <li><sup>[3]</sup>Gottschalk, P. (2002). <em>IT strategi</em>. Fagbokforlaget.</p></li>
+                  <li>Holmstedt, V. (2004). <em>Objektorientert systemutvikling og UML</em>. Fagbokforlaget.</li>
                   <li class="divider"></li>
                   <li>Bootstrap-tema hentet fra <a href="http://bootswatch.com/">www.bootswatch.com</a></li>
                   <li><a href="https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE">Bootswatch-lisens</a></li>

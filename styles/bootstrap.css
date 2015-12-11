@@ -96,7 +96,10 @@ img {
   border: 0;
 }
 img.resize{
-    width:100%;
+    width:80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     height: auto;
 }
 svg:not(:root) {
