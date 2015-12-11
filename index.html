@@ -61,6 +61,19 @@
                 <p>Model bør skilles ut i en separat pakke fremfor å inkluderes i en pakke hvor det også befinner seg programlogikk. Disse logikklassene burde forøvrig vært flyttet til <em>controller</em>-pakken. En strammere tilnærming til MVC-paradigmet ville medført høyere kohesjonsgrad i programkoden <a href="#Referanser">(Holmstedt, 2004, s. 269)</a>.</p>
             </section>
 
+			<section>
+			 <h1 id="Søkefunksjon">Ilustrering  av søk</h1>
+			 <p class="lead">Søkefunksjonen funger men er litt forvirrende</p>
+
+
+                <p>Før brukeren har utført et søk er "Slett et tomt felt" og "Legg til et datafelt" -knappene synelige. Dette gjør at brukeren har mulighet til å trykke på disse uten at de har noen funksjon, som kan føre til forvirring. Knappene er markert med rød bakgrunn i diagrammet, og er ikke interessante for resten av søkefunksjonen.
+					Dette kunne vært løst på samme måte som "Lagre endringer" knappen er programert,denne knappen blir ikke akktivert før den trengs.</p>
+					<P> Følgende aktivitetsdiagram illustrerer søkfunksjonen.
+                <p><a href="diagrammer/ActivityDiagram-Sok.svg" target="_blank"><img class ="resize" src="diagrammer/ActivityDiagram-Sok.svg"/></a>
+				<p></p>
+            </section>
+			
+			
             <section>
 				      <h1 id="Problematikk ved dataendring">Problematikk ved dataendring</h1>
 			         	<p class="lead">Funksjonaliteten for å endre data og struktur i dokumentdatabasen følger ikke prinsipper om <em>usability</em></p>
