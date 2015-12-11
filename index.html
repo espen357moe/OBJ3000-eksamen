@@ -29,6 +29,7 @@
                 <li class="divider"></li>
                 <li><a href="#MVC-problematikk">MVC-problematikk</a></li>
 			    <li><a href="#Endring-problematikk">Endring-problematikk</a></li>
+				<li><a href="#Endring-gjennomføres">Endring-gjennomføres</a></li>
                 <li><a href="#Referanser">Referanser</a></li>
               </ul>
             </li>
@@ -63,12 +64,23 @@
 				<h1 id="Endring-problematikk">Endring av data problematikk</h1>
 				<p class="lead">Utvikleren har laget en endring lønsing som ikke fungerer optimalt.</p>
 
-                <p>Analyse av programmet viser problematikk med måten brukeren endrer eksisterende data på. Det tas utgangspunkt i at bruker har søket opp data som skal endres. Da bruker trykker "Lagre endringer" skjer det ingen ting.
+                <p>Analyse av programmet viser problematikk med måten brukeren endrer eksisterende data på. 
+				Det tas utgangspunkt i at bruker har søket opp data som skal endres. Da bruker trykker "Lagre endringer" skjer det ingen ting.
 				Utvikler ser at feilmelding kommer, men bruker får ingen informasjon om denne feilmeldingen. Programmet stopper da opp og gjør ingen endringer.
-				Sekvensdiagrammet under ilustrerer problemet.  </p>
+				Sekvensdiagrammet under ilustrerer problemet.  
+				</p>
+                <a href="diagrammer/SequenceDiagram-LagreFeil.svg" target="_blank"><img class ="resize" src="diagrammer/SequenceDiagram-LagreFeil.svg" /> </a>
                 <p></p>
-                <a href="SequenceDiagramLagreFeil.svg" target="_blank"><img class ="resize" src="diagrammer/SequenceDiagramLagreFeil.svg" /> </a>
-                <p>Dette skylles at det mangler en databasetilkobling, denne tilkoblingen blir opprettet et annet sted i programmet.</p>
+			</section>
+			
+			<section>
+				<h1 id="Endring-gjennomføres">Endring av data gjennomføres</h1>
+				<p class="lead">Brukeren av programmet endrer på data.</p>
+
+                <p>Aktivitetsdiagrammet under viser hvordan brukeren løser problemet med databasetilkoblingen som <a href="#Endring-problematikk"> sekvensdiagrammet </a>belyser. 
+				De røde aktivitetene er aktiviteter som ikke er interessante i denne sammenhengen, disse blir ikke videre belyst.
+				Det tas utgangspunkt i at bruker har søket opp data som skal endres. </p>
+                <a href="diagrammer/AktivitetsDiagram-LagreEndringer.svg" target="_blank"><img class ="resize" src="diagrammer\AktivitetsDiagram-LagreEndringer.svg" /> </a>
 			</section>
 			
             <section>
