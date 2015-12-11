@@ -52,9 +52,10 @@
               <h1 id="MVC-problematikk">MVC-problematikk</h1>
                 <p class="lead">Utvikleren har ikke fulgt MVC-konvensjonene fullt ut, og har lagd en hybridløsning - noe som medførere svakere kohesjon i systemet</p>
 
-                <p>Analyse av strukturen i programkoden avslører at utvikleren har hatt tanker om å skille datagrunnlag, grensesnitt og programlogikk, noe som er et godt utgangspunkt. Imidlertid er ikke tankerekken fullført, og det viser seg at datagrunnlaget - heretter kalt <em>model</em>, ligger i en pakke som også innehar klasser for programlogikk. <em>Model</em> instansierer et <em>azureclient</em>-objekt som igjen tar seg av databaseaksess, og så danner datagrunnlaget for systemet. Følgende klassediagram illustrerer problemet:</p>
+                <p>Analyse av strukturen i programkoden avslører at utvikleren har hatt tanker om å skille datagrunnlag, grensesnitt og programlogikk, noe som er et godt utgangspunkt. Imidlertid er ikke tankerekken fullført, og det viser seg at datagrunnlaget - heretter kalt <em>model</em>, ligger i en pakke som også innehar klasser for programlogikk. <em>Model</em> instansierer et <em>azureclient</em>-objekt som igjen tar seg av databaseaksess, og så danner datagrunnlaget for systemet. </p>
+                <p>Følgende klassediagram illustrerer problemet:</p>
                 <a href="diagrammer/MVC-problematikk.svg" target="_blank"><img class ="resize" src="diagrammer/MVC-problematikk.svg"/></a>
-                <p>Model burde vært adskilt i en separat pakke fremfor å inkluderes i en pakke hvor det også befinner seg programlogikk. Disse logikklassene burde forøvrig vært flyttet til <em>controller</em>-pakken. Dette ville bidratt til at koden hadde fått høyere grad av kohesjon <a href="#Referanser">(Holmstedt, 2004, s. 269)</a>.</p>
+                <p>Model burde skilles ut i en separat pakke fremfor å inkluderes i en pakke hvor det også befinner seg programlogikk. Disse logikklassene burde forøvrig vært flyttet til <em>controller</em>-pakken. Dette ville bidratt til at koden hadde fått høyere grad av kohesjon <a href="#Referanser">(Holmstedt, 2004, s. 269)</a>.</p>
             </section>
 
             <section>
