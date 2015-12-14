@@ -27,7 +27,8 @@
               <ul class="dropdown-menu" aria-labelledby="themes">
                 <li><a href="#Innledning">Innledning</a></li>
                 <li class="divider"></li>
-                <li><a href="#Lav-kohesjon">Lav kohesjon</a></li>
+                <li><a href="#Lav-kohesjon">Pakker og lav kohesjon</a></li>
+                <li><a href="Bruk-av-interface">Bruk av interface</a>
 				        <li><a href="#Søkefunksjon">Diskusjon rundt søkefunksjonalitet</a></li>
                 <li><a href="#Problematikk-ved-dataendring">Problematikk ved dataendring</a></li>
 				        <li><a href="#Problematikk-ved-datasletting">Problematikk ved datasletting</a></li>
@@ -74,6 +75,16 @@
             </section>
 
             <section>
+              <h1 id="Bruk-av-interface">Bruk av interfaces</h1>
+                <p class="lead">Applikasjonen benytter en håndfull interfaces fra Java-rammeverket</p>
+                <p>Enkelte klasser i applikasjonen kontraktsfester implementasjon av gitte metoder på sedvanlig vis - da primært hendelseslyttere som detekterer brukerinteraksjon på grensesnittkontroller. Men applikasjonen implementerer også et <em>Observer</em>-interface fra rammeverket - spesifikt klassene <em>DomainView</em> og <em>PanelForExistingColumns</em>. Dette interfacet implementeres i en klasse dersom klassen ønsker å bli underrettet om endringer i observerbare objekter. Metoden <em>update</em> som implementeres gjennom interfacet tar et objekt av typen <em>Observable</em> og lar utvikleren implementere kode for hendelser når et objekt av denne typen endres. I dette tilfellet er det snakk om domeneklassene <em>MyObservable</em> og <em>KeyValueRoster</em>, som da spesialiserer rammeverkklassen <em>Observable</em>.</p>
+
+                <a href="diagrammer/Observer-og-Observable.svg" target="_blank"><img class ="resize" src="diagrammer/Observer-og-Observable.svg" alt="Klassediagram av interface"/></a>
+
+                <p>Rent konkret i denne applikasjonen brukes dette til å farge grensesnittkontroller, som tekstfelt, med en varselfarge under visse omstendigheter. Disse omstendighetene fremgår i senere diagrammer.</p>
+            </section>
+
+            <section>
               <h1 id="Søkefunksjon">Diskusjon rundt søkefunksjonalitet</h1>
                 <p class="lead">Søkefunksjonen fungerer, men har innslag av dårlig <i>usability</i></p>
 
@@ -85,13 +96,15 @@
 						
             <section>
 				      <h1 id="Problematikk-ved-dataendring">Problematikk ved endring av eksisterende data og struktur</h1>
-			         	<p class="lead">Funksjonaliteten for å endre data og struktur i dokumentdatabasen følger ikke prinsipper for <em>usability</em> og fremstår som forvirrende for brukeren</p>
+			         	<p class="lead">Funksjonaliteten for å endre data og struktur i dokumentdatabasen følger ikke prinsipper for <em>usability</em>, og fremstår som forvirrende for brukeren</p>
 
                 <p>Praktisk bruk av applikasjonen viser problemer i programflyten når det gjelder hvordan den håndterer bruker-input i tilfeller hvor brukeren ønsker å utføre endringer. Når bruker trykker "Lagre endringer", skjer det tilsynelatende ingen ting. Debug-vinduet i IDE-et avslører imidlertid en programfeil, men brukeren av applikasjonen får ingen tilbakemelding om dette, og applikasjonen gjør heller ingen endringer i databasen. Igjen bryter applikasjonen med <em>the principle of least astonishment</em>.</p>
 
                 <p>Sekvensdiagrammet under illustrerer problemet (det tas utgangspunkt i at bruker først har søkt opp kandidatdata for endring):</p>
                 
                 <a href="diagrammer/SequenceDiagram-LagreFeil.svg" target="_blank"><img class="resize" src="diagrammer/SequenceDiagram-LagreFeil.svg" alt="Sekvensdiagram av problemer ved dataendring"/></a>
+
+                <p>Her ser vi i punkt 2.1 også et eksempel på bruk av interfacet <em>Observer</em> til å endre bakgrunnsfarge på felt, som nevnt i tidligere avsnitt.</p> 
 
                 <p>Grunnen til at det ikke er mulig for brukeren å endre data uten at visse uintuitive kriterier er oppfylt, er teknisk; koblingen mot databasen inntreffer ikke der det er hensiktsmessig i denne sammenheng.</p>
 
