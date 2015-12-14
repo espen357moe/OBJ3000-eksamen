@@ -106,6 +106,15 @@
 
                 <p> Grunnen til at det ikke er mulig for brukerer å slette tomme data uten at visse uintuitive kriterier er oppfylt, er teknisk; koblingen mot databasen inntreffer ikke der det er hensiktsmessig i denne sammenheng. Denne koblingen skjer først der livslinjene i sekvensdiagrammet er markert med grønt.</p>
             </section>
+
+			
+			<section>
+			<h1 id="Problematikk med databasen"> Problematikk med databasen</h1>
+			<p class="lead"> Funksjonaliteten for å slette data skaper mange tomme felt i databasen.</p>
+			
+			<p> Brukeren har mulighet til å slette tomme felt, men ikke rader i databasen. Dette gjør at det fort blir veldig mange ekstra oppføringer i databasen som ikke blir brukt etter innholdet i feltet blir slettet.</p>
+			<a href="diagrammer/UseCase-Abstrakt.svg" target="_blank"><img class ="resize" src="diagrammer/UseCase-Abstrakt.svg" /></a>
+			</section>
 				
             <section>
               <h1 id="Referanser">Litteraturreferanser</h1>          
