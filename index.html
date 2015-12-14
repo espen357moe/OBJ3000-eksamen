@@ -28,7 +28,7 @@
                 <li><a href="#Innledning">Innledning</a></li>
                 <li class="divider"></li>
 
-                <li><a href="#Svak kohesjon">Svak kohesjon</a></li>
+                <li><a href="#Lav kohesjon">Lav kohesjon</a></li>
 				<li><a href="#Søkefunksjon">Søkefunksjon</a></li>
                 <li><a href="#Problematikk ved dataendring">Problematikk ved dataendring</a></li>
 				<li><a href="#Problematikk ved datasletting"> Problematikk ved datasletting</a></li>
@@ -53,7 +53,7 @@
             </section>
 
             <section>
-              <h1 id="Svak kohesjon">Lav kohesjon</h1>
+              <h1 id="Lav kohesjon">Lav kohesjon</h1>
                 <p class="lead">Utvikleren har ikke fulgt MVC-konvensjonene fullt ut, og har lagd en hybridløsning - noe som medfører lavere kohesjon i systemet enn det kunne vært</p>
 
                 <p>Analyse av strukturen i programkoden avslører at utvikleren har hatt tanker om å skille datagrunnlag, grensesnitt og programlogikk, noe som er et godt utgangspunkt. Imidlertid er ikke tankerekken fullført, og det viser seg at datagrunnlaget - heretter kalt <em>model</em> - ligger i en pakke som også inneholder klasser for programlogikk. <em>Model</em> instansierer et <em>azureclient</em>-objekt som igjen tar seg av databaseaksess, og så danner datagrunnlaget for systemet. </p>
