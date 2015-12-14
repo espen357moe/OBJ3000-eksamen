@@ -51,7 +51,7 @@
                 
                 <p>Programmet er et forholdsvis enkelt program for å vise værdata. Programmet lar brukeren søke opp datafelt i en dokumentdatabase, endre innhold i disse, samt legge til og fjerne felt fra databasen. I tillegg bruker programmet en rekke UI-elementer for å holde brukeren orientert om tilstanden programmet befinner seg i. Vi har trukket ut aspekter av programmet som vi har vurdert som interessante å belyse i form av UML.</p> 
 
-                <p>Navigering i dette dokumentet gjøres ved å scrolle nedover siden, eller ved å benytte snarveiene i menyen. Ved å klikke på diagrammene, vil disse åpne seg i full størrelse i nye faner.</p>
+                <p>Navigering i dette dokumentet gjøres ved å scrolle nedover siden, eller ved å benytte snarveiene i menyen. Ved å klikke på diagrammene, vil disse åpne seg i full størrelse i nye faner.</p></marquee>
             </section>
 
             <section>
@@ -59,8 +59,11 @@
                 <p class="lead">Utvikleren har ikke fulgt MVC-konvensjonene fullt ut, og har lagd en hybridløsning - noe som medfører lavere kohesjon i systemet enn det kunne hatt</p>
 
                 <p>Analyse av strukturen i programkoden avslører at utvikleren har hatt tanker om å skille datagrunnlag, grensesnitt og programlogikk, noe som er et godt utgangspunkt. Imidlertid er ikke tankerekken fullført, og det viser seg at datagrunnlaget - heretter kalt <em>model</em> - ligger i en pakke som også inneholder klasser for programlogikk. <em>Model</em> instansierer et <em>azureclient</em>-objekt som igjen tar seg av databaseaksess, og så danner datagrunnlaget for systemet. </p>
+                
                 <p>Følgende klassediagram illustrerer problemet:</p>
+                
                 <a href="diagrammer/MVC-problematikk.svg" target="_blank"><img class ="resize" src="diagrammer/MVC-problematikk.svg"/></a>
+                
                 <p>De nødvendige håndgrepene for å heve kohesjonsnivået er forholdsvis enkle: <em>model</em> bør skilles ut i en separat pakke fremfor å inkluderes i en pakke hvor det også befinner seg programlogikk. Disse logikklassene burde forøvrig også vært flyttet til <em>controller</em>-pakken. En strammere tilnærming til MVC-paradigmet ville således medført høyere kohesjonsnivå i programkoden <a href="#Referanser">(Holmstedt, 2004, s. 269)</a>.</p>
             </section>
 
@@ -101,20 +104,23 @@
                 <p> Sekvensdiagrammet under illustrerer denne problematikken.</p>
 
         				<a href="diagrammer/SequenceDiagram-Slettfunksjon.svg" target="_blank"><img class ="resize" src="diagrammer/SequenceDiagram-Slettfunksjon.svg" /></a>
-                
+
                 <p> Grunnen til at det ikke er mulig for brukerer å slette tomme data uten at visse uintuitive kriterier er oppfylt, er teknisk; koblingen mot databasen inntreffer ikke der det er hensiktsmessig i denne sammenheng. Denne koblingen skjer der livslinjene i sekvensdiagrammet er markert med grønt.</p>
             </section>
-			
 				
             <section>
               <h1 id="Referanser">Litteraturreferanser</h1>
+                
                 <ul class="list-unstyled">
                   <li>Holmstedt, V. (2004). <em>Objektorientert systemutvikling og UML</em>. Fagbokforlaget.</li>
                   <li>Seebach, P. (2001). <a href="http://www.ibm.com/developerworks/library/us-cranky10/us-cranky10-pdf.pdf" target="_blank"><em>The principle of least astonishment</em></a>. IBM DeveloperWorks.</li> 
-                  <h1>Andre kilder</h1>
+              
+              <h1>Andre kilder</h1>
+                <ul class="list-unstyled">
                   <li>Bootstrap-tema hentet fra <a href="http://bootswatch.com/">www.bootswatch.com</a></li>
                   <li><a href="https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE">Bootswatch-lisens</a></li>
                 </ul>
+
             </section>
 
       <footer>
