@@ -108,13 +108,16 @@
             </section>
 
 			
-			<section>
-			<h1 id="Problematikk med databasen">Problematikk med databasen</h1>
-			<p class="lead"> Funksjonaliteten for å slette data skaper mange tomme felt i databasen.</p>
-			
-			<p> Brukeren har mulighet til å slette tomme felt, men ikke rader i databasen. Dette gjør at det fort blir veldig mange ekstra oppføringer i databasen som ikke blir brukt etter innholdet i feltet blir slettet.</p>
-			<a href="diagrammer/UseCase-Abstrakt.svg" target="_blank"><img class ="resize" src="diagrammer/UseCase-Abstrakt.svg" /></a>
-			</section>
+      			<section>
+              <h1 id="Problematikk med databasen">Fantomkolonner</h1>
+                <p class="lead">Brukers interaksjon mot databasen skaper potensielt tomme kolonner</p>
+      			
+                <p>Brukeren har mulighet til å slette tomme felt, men ikke hele kolonner i databasen. Dette gjør at det blir "fantomkolonner" etter innholdet i feltene blir slettet.</p>
+
+                <a href="diagrammer/UseCase-Abstrakt.svg" target="_blank"><img class ="resize" src="diagrammer/UseCase-Abstrakt.svg"/></a>
+
+                <p>Sletting av kolonner fordrer således, med nåværende implementasjon i applikasjonen, tredjepartsverktøy - eksempelvis Azure Storage Explorer.</p> 
+      			</section>
 				
             <section>
               <h1 id="Referanser">Litteraturreferanser</h1>          
