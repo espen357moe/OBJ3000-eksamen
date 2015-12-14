@@ -49,7 +49,9 @@
               <h1 id="Innledning">Innledning</h1>
                 <p class="lead">Gruppeeksamen i objektorientert analyse og design ved Høgskolen i Buskerud og Vestfold vinteren 2015 gikk ut på å analysere et Java-program ved hjelp av diagrammodelleringsverktøy</p>
                 
-                <p>Programmet er et forholdsvis enkelt program for å vise værdata. Programmet lar brukeren søke opp datafelt i en dokumentdatabase, endre innhold i disse, samt legge til og fjerne felt fra databasen. I tillegg bruker programmet en rekke UI-elementer for å holde brukeren orientert om tilstanden programmet befinner seg i. Vi har trukket ut aspekter av programmet som vi har vurdert som interessante å belyse i form av UML. Navigering i dette dokumentet gjøres ved å scrolle nedover siden, eller ved å benytte snarveiene i menyen. Ved å klikke på diagrammene, vil disse åpne seg i full størrelse i nye faner.</p>
+                <p>Programmet er et forholdsvis enkelt program for å vise værdata. Programmet lar brukeren søke opp datafelt i en dokumentdatabase, endre innhold i disse, samt legge til og fjerne felt fra databasen. I tillegg bruker programmet en rekke UI-elementer for å holde brukeren orientert om tilstanden programmet befinner seg i. Vi har trukket ut aspekter av programmet som vi har vurdert som interessante å belyse i form av UML.</p> 
+
+                <p>Navigering i dette dokumentet gjøres ved å scrolle nedover siden, eller ved å benytte snarveiene i menyen. Ved å klikke på diagrammene, vil disse åpne seg i full størrelse i nye faner.</p>
             </section>
 
             <section>
@@ -73,31 +75,33 @@
             </section>
 						
             <section>
-				      <h1 id="Problematikk ved dataendring">Problematikk ved endring av eksisterende data</h1>
+				      <h1 id="Problematikk ved dataendring">Problematikk ved endring av eksisterende data og struktur</h1>
 			         	<p class="lead">Funksjonaliteten for å endre data og struktur i dokumentdatabasen følger ikke prinsipper for <em>usability</em> og fremstår som forvirrende for brukeren</p>
 
                 <p>Bruk av programmet viser problemer i programflyten når det gjelder hvordan det håndterer bruker-input i tilfeller hvor brukeren ønsker å endre data. Når bruker trykker "Lagre endringer", skjer det ingen ting. Debug-vinduet i IDE-et avslører en programfeil, men brukeren av programmet får ingen tilbakemelding om dette, og programmet gjør heller ingen endringer i databasen. Igjen bryter programmet med <em>the principle of least astonishment</em>.</p>
 
-                <p>Sekvensdiagrammet under illustrerer problemet (det tas utgangspunkt i at bruker først har søkt opp data som skal endres):</p>
+                <p>Sekvensdiagrammet under illustrerer problemet (det tas utgangspunkt i at bruker først har søkt opp kandidatdata for endring):</p>
                 
-                <a href="diagrammer/SequenceDiagram-LagreFeil.svg" target="_blank"><img class ="resize" src="diagrammer/SequenceDiagram-LagreFeil.svg" /></a>
+                <a href="diagrammer/SequenceDiagram-LagreFeil.svg" target="_blank"><img class="resize" src="diagrammer/SequenceDiagram-LagreFeil.svg"/></a>
 
                 <p>Grunnen til at det ikke er mulig for brukeren å endre data uten at visse uintuitive kriterier er oppfylt, er teknisk; koblingen mot databasen inntreffer ikke der det er hensiktsmessig i denne sammenheng.</p>
 
-                <p>Aktivitetsdiagrammet nedenfor illustrerer hvordan det forutsettes at brukeren trykker "Legg til et datafelt" før det blir mulig å gjøre noen endringer i databasen. Databasetilkobling som tillater endring utføres ikke før denne knappen trykkes, og brukeren får ingen tilbakemelding om dette, eller noen indikasjon på at endringer som er forsøkt gjort før denne knappen er trykket på ikke har blitt lagret. Aktivitetene merket med rødt kan utledes ytterligere, men er i dette diagrammet kortet ned for leselighetens del.</p>
+                <p>Aktivitetsdiagrammet nedenfor illustrerer hvordan det forutsettes at brukeren trykker "Legg til et datafelt" før det blir mulig å gjøre noen endringer i databasen. Databasetilkobling som tillater endring utføres ikke før denne knappen trykkes, og brukeren får ingen tilbakemelding om dette, eller noen indikasjon på at endringer som er forsøkt gjort før denne knappen er trykket på ikke har blitt lagret. Aktivitetene merket med rødt kan dekomponeres ytterligere, men er i dette diagrammet kortet ned for leselighetens del.</p>
                 
                 <a href="diagrammer/AktivitetsDiagram-LagreEndringer.svg" target="_blank"><img class ="resize" src="diagrammer\AktivitetsDiagram-LagreEndringer.svg" /> </a>
             </section>
 			
       			<section>
-      				<h1 id="Problematikk ved datasletting"> Problematikk ved datasletting</h1>
-        				<p class="lead"> Funksjonaliteten for å slette data i dokumentdatabasen følger heller ikke prinsipper for <em>usability</em> og fremstår som forvirrende for brukeren. Det er mye av samme problematikk her som nevnt over</p>
+      				<h1 id="Problematikk ved datasletting">Problematikk ved datasletting</h1>
+        				<p class="lead">Funksjonaliteten for å slette data i dokumentdatabasen følger heller ikke prinsipper for <em>usability</em> og fremstår som forvirrende for brukeren.</p>
         				
-        				<P> Bruk av programmet viser igjen problemer i programflyten når det gjelder hvordan det håndterer bruker-input.
-        				Når brukeren trykker "Slett et datafelt" får brukeren vist et nytt GUI, alle feltene som er tomme blir vist her. Disse er representert med "cellenavn" fra databasen.
-        				Da brukeren nå velger et datafelt for så å trykke "Slett det valgte feltet" skjer det ingenting. Det virker som porgrammet fryser.			
-        				<p> Sekvensdiagrammet under illustrerer denne problematikken.
+        				<p> Bruk av programmet viser igjen problemer i programflyten når det gjelder hvordan det håndterer bruker-input.
+        				Når brukeren trykker "Slett et datafelt" får brukeren vist et nytt GUI, alle feltene som er tomme blir vist her. Disse er representert med "cellenavn" fra databasen. Da brukeren nå velger et datafelt for så å trykke "Slett det valgte feltet" skjer det ingenting. Det virker som porgrammet fryser.</p>			
+        				
+                <p> Sekvensdiagrammet under illustrerer denne problematikken.</p>
+
         				<a href="diagrammer/SequenceDiagram-Slettfunksjon.svg" target="_blank"><img class ="resize" src="diagrammer/SequenceDiagram-Slettfunksjon.svg" /></a>
+                
                 <p> Grunnen til at det ikke er mulig for brukerer å slette tomme data uten at visse uintuitive kriterier er oppfylt, er teknisk; koblingen mot databasen inntreffer ikke der det er hensiktsmessig i denne sammenheng. Denne koblingen skjer der livslinjene i sekvensdiagrammet er markert med grønt.</p>
             </section>
 			
