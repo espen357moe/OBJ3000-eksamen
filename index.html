@@ -52,7 +52,7 @@
               <h1 id="Innledning">Innledning</h1>
                 <p class="lead">Gruppeeksamen i objektorientert analyse og design ved Høgskolen i Buskerud og Vestfold vinteren 2015 gikk ut på å analysere et Java-program ved hjelp av diagrammodelleringsverktøy</p>
                 
-                <p>Programmet er et forholdsvis enkelt program for å vise værdata. Programmet lar brukeren søke opp datafelt i en dokumentdatabase, endre innhold i disse, samt legge til og fjerne felt fra databasen. I tillegg bruker programmet en rekke UI-elementer for å holde brukeren orientert om tilstanden programmet befinner seg i. Vi har trukket ut aspekter av programmet som vi har vurdert som interessante å belyse i form av UML.</p> 
+                <p>Applikasjonen er en forholdsvis enkelt applikasjon for å vise værdata. Applikasjonen lar brukeren søke opp datafelt i en dokumentdatabase, endre innhold i disse, samt legge til og fjerne felt fra databasen. I tillegg bruker applikasjonen en rekke UI-elementer for å holde brukeren orientert om tilstanden applikasjonen befinner seg i. Vi har trukket ut aspekter av applikasjonen som vi har vurdert som interessante å belyse i form av UML.</p> 
 
                 <p>Navigering i dette dokumentet gjøres ved å scrolle på siden, eller ved å benytte snarveiene i menyen. Ved å klikke på diagrammene, vil disse åpne seg i original størrelse i nye faner. Dokumentet er testet og funnet i orden i Chrome, Edge, Opera, Safari og Firefox. Det er lesbart, men med noen formateringsuregelmessigheter i Internet Explorer 11.</p>
             </section>
@@ -68,6 +68,9 @@
                 <a href="diagrammer/MVC-problematikk.svg" target="_blank"><img class ="resize" src="diagrammer/MVC-problematikk.svg"/></a>
                 
                 <p>De nødvendige håndgrepene for å heve kohesjonsnivået er forholdsvis enkle: <em>model</em> bør skilles ut i en separat pakke fremfor å inkluderes i en pakke hvor det også befinner seg programlogikk. Disse logikklassene burde forøvrig også vært flyttet til <em>controller</em>-pakken. En strammere tilnærming til MVC-paradigmet ville således medført høyere kohesjonsnivå i programkoden <a href="#Referanser">(Holmstedt, 2004, s. 269)</a>.</p>
+                <p>
+                Den overordnede pakkestrukturen fremkommer også av dette diagrammet, dog er pakkene som tilhører Java-rammeverket utelatt.
+                </p>
             </section>
 
             <section>
@@ -84,7 +87,7 @@
 				      <h1 id="Problematikk ved dataendring">Problematikk ved endring av eksisterende data og struktur</h1>
 			         	<p class="lead">Funksjonaliteten for å endre data og struktur i dokumentdatabasen følger ikke prinsipper for <em>usability</em> og fremstår som forvirrende for brukeren</p>
 
-                <p>Praktisk bruk av applikasjonen viser problemer i programflyten når det gjelder hvordan det håndterer bruker-input i tilfeller hvor brukeren ønsker å utføre endringer. Når bruker trykker "Lagre endringer", skjer det ingen ting. Debug-vinduet i IDE-et avslører imidlertid en programfeil, men brukeren av programmet får ingen tilbakemelding om dette, og programmet gjør heller ingen endringer i databasen. Igjen bryter programmet med <em>the principle of least astonishment</em>.</p>
+                <p>Praktisk bruk av applikasjonen viser problemer i programflyten når det gjelder hvordan det håndterer bruker-input i tilfeller hvor brukeren ønsker å utføre endringer. Når bruker trykker "Lagre endringer", skjer det ingen ting. Debug-vinduet i IDE-et avslører imidlertid en programfeil, men brukeren av applikasjonen får ingen tilbakemelding om dette, og applikasjonen gjør heller ingen endringer i databasen. Igjen bryter applikasjonen med <em>the principle of least astonishment</em>.</p>
 
                 <p>Sekvensdiagrammet under illustrerer problemet (det tas utgangspunkt i at bruker først har søkt opp kandidatdata for endring):</p>
                 
@@ -101,7 +104,7 @@
       				<h1 id="Problematikk ved datasletting">Problematikk ved datasletting</h1>
         				<p class="lead">Funksjonalitet for å slette data i dokumentdatabasen følger heller ikke prinsipper for <em>usability</em>, og fremstår som forvirrende for brukeren</p>
         				
-        				<p>Bruk av programmet viser igjen problemer i programflyten når det gjelder hvordan det håndterer bruker-input. Når brukeren trykker "Slett et tomt felt", får brukeren vist et nytt grensesnittvindu hvor alle tomme felt blir fremvist. Disse er representert med cellenavn fra databasen. Når brukeren så velger et datafelt og trykker "Slett det valgte feltet", skjer det ingenting. For brukeren fremstår det som om applikasjonen fryser.</p>			
+        				<p>Bruk av applikasjonen viser igjen problemer i programflyten når det gjelder hvordan det håndterer bruker-input. Når brukeren trykker "Slett et tomt felt", får brukeren vist et nytt grensesnittvindu hvor alle tomme felt blir fremvist. Disse er representert med cellenavn fra databasen. Når brukeren så velger et datafelt og trykker "Slett det valgte feltet", skjer det ingenting. For brukeren fremstår det som om applikasjonen fryser.</p>			
         				
                 <p>Sekvensdiagrammet under illustrerer dette:</p>
 
@@ -138,7 +141,7 @@
               <h1 id="Konklusjon">Konklusjon</h1>
                 <p class="lead">Vi har belyst forbedringspotensialer innen struktur og brukerinteraksjon</p>
                 
-                <p>Vår analyse av programkoden og praktisk bruk av programmet har avslørt noen aspekter vi har valgt å fokusere på. Det vi har funnet kan sies å ha moderat alvorlighetsgrad. Høy kohesjon er et viktig prinsipp å ivareta fra begynnelsen av for å unngå at programmet utvikler seg med basis i dårlige kodekonvensjoner som så siden blir vanskelig å utbedre. I tillegg er det noen merkverdigheter rundt brukeropplevelsesaspektet ved programmet, hvor brukeren må gjette hva programmet har gjort og ikke gjort.</p>
+                <p>Vår analyse av programkoden og praktisk bruk av applikasjonen har avslørt noen aspekter vi har valgt å fokusere på. Det vi har funnet kan sies å ha moderat alvorlighetsgrad. Høy kohesjon er et viktig prinsipp å ivareta fra begynnelsen av for å unngå at applikasjonen utvikler seg med basis i dårlige kodekonvensjoner som så siden blir vanskelig å utbedre. I tillegg er det noen merkverdigheter rundt brukeropplevelsesaspektet ved applikasjonen, hvor brukeren må gjette hva applikasjonen har gjort og ikke gjort.</p>
                 
                 <p>Vi har belyst med diagrammer og tekst de punktene vi har vurdert som interessante.</p>
             <section>
