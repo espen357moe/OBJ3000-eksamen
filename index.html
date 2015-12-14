@@ -27,12 +27,12 @@
               <ul class="dropdown-menu" aria-labelledby="themes">
                 <li><a href="#Innledning">Innledning</a></li>
                 <li class="divider"></li>
-                <li><a href="#Lav kohesjon">Lav kohesjon</a></li>
+                <li><a href="#Lav-kohesjon">Lav kohesjon</a></li>
 				        <li><a href="#Søkefunksjon">Diskusjon rundt søkefunksjonalitet</a></li>
-                <li><a href="#Problematikk ved dataendring">Problematikk ved dataendring</a></li>
-				        <li><a href="#Problematikk ved datasletting">Problematikk ved datasletting</a></li>
-                <li><a href="#Databasen og fantomkolonner">Databasen og fantomkolonner</a><li>
-                <li><a href="#Øvrige observasjoner">Øvrige observasjoner</a><li>
+                <li><a href="#Problematikk-ved-dataendring">Problematikk ved dataendring</a></li>
+				        <li><a href="#Problematikk-ved-datasletting">Problematikk ved datasletting</a></li>
+                <li><a href="#Databasen-og-fantomkolonner">Databasen og fantomkolonner</a><li>
+                <li><a href="#Øvrige-observasjoner">Øvrige observasjoner</a><li>
                 <li><a href="#Konklusjon">Konklusjon</a><li>
                 <li class="divider"></li>
                 <li><a href="#Referanser">Referanser</a></li>
@@ -52,20 +52,20 @@
               <h1 id="Innledning">Innledning</h1>
                 <p class="lead">Gruppeeksamen i objektorientert analyse og design ved Høgskolen i Buskerud og Vestfold vinteren 2015 gikk ut på å analysere et Java-program ved hjelp av diagrammodelleringsverktøy</p>
                 
-                <p>Applikasjonen er en forholdsvis enkelt applikasjon for å vise værdata. Applikasjonen lar brukeren søke opp datafelt i en dokumentdatabase, endre innhold i disse, samt legge til og fjerne felt fra databasen. I tillegg bruker applikasjonen en rekke UI-elementer for å holde brukeren orientert om tilstanden applikasjonen befinner seg i. Vi har trukket ut aspekter av applikasjonen som vi har vurdert som interessante å belyse i form av UML.</p> 
+                <p>Applikasjonen er en forholdsvis enkel applikasjon for å vise værdata. Applikasjonen lar brukeren søke opp datafelt i en dokumentdatabase, endre innhold i disse, samt legge til og fjerne felt fra databasen. I tillegg bruker applikasjonen en rekke UI-elementer for å holde brukeren orientert om tilstanden applikasjonen befinner seg i. Vi har trukket ut aspekter av applikasjonen som vi har vurdert som interessante å belyse i form av UML.</p> 
 
                 <p>Navigering i dette dokumentet gjøres ved å scrolle på siden, eller ved å benytte snarveiene i menyen. Ved å klikke på diagrammene, vil disse åpne seg i original størrelse i nye faner. Dokumentet er testet og funnet i orden i Chrome, Edge, Opera, Safari og Firefox. Det er lesbart, men med noen formateringsuregelmessigheter i Internet Explorer 11.</p>
             </section>
 
             <section>
-              <h1 id="Lav kohesjon">Lav kohesjon</h1>
+              <h1 id="Lav-kohesjon">Lav kohesjon</h1>
                 <p class="lead">Utvikleren har ikke fulgt MVC-konvensjonene fullt ut, og har lagd en hybridløsning - noe som medfører lavere kohesjon i systemet enn det kunne hatt</p>
 
                 <p>Analyse av strukturen i programkoden avslører at utvikleren har hatt tanker om å skille datagrunnlag, grensesnitt og programlogikk, noe som er et godt utgangspunkt. Imidlertid er ikke tankerekken fullført, og det viser seg at datagrunnlaget - heretter kalt <em>model</em> - ligger i en pakke som også inneholder klasser for programlogikk. <em>Model</em> instansierer et <em>azureclient</em>-objekt som igjen tar seg av databaseaksess, og så danner datagrunnlaget for systemet. </p>
                 
                 <p>Følgende klassediagram illustrerer problemet:</p>
                 
-                <a href="diagrammer/MVC-problematikk.svg" target="_blank"><img class ="resize" src="diagrammer/MVC-problematikk.svg"/></a>
+                <a href="diagrammer/MVC-problematikk.svg" target="_blank"><img class ="resize" src="diagrammer/MVC-problematikk.svg" alt="Klassediagram av MVC-problematikk"/></a>
                 
                 <p>De nødvendige håndgrepene for å heve kohesjonsnivået er forholdsvis enkle: <em>model</em> bør skilles ut i en separat pakke fremfor å inkluderes i en pakke hvor det også befinner seg programlogikk. Disse logikklassene burde forøvrig også vært flyttet til <em>controller</em>-pakken. En strammere tilnærming til MVC-paradigmet ville således medført høyere kohesjonsnivå i programkoden <a href="#Referanser">(Holmstedt, 2004, s. 269)</a>.</p>
                 <p>
@@ -80,78 +80,79 @@
                 <p>Før brukeren gjør et søk, er knappene for å slette- og legge til datafelt aktive, og reagerer visuelt på brukerinteraksjon. Dette kan skape forvirring da brukeren kan få inntrykk av at de faktisk utfører handlinger. Dette bryter med <em>the principle of least astonishment</em>, som vektlegger at grensesnittkontroller og programflyt bør oppføre seg slik brukere flest forventer <a href="#Referanser">(Seebach, 2001)</a>. Dette burde vært løst ved å markere knappene som inaktive inntil kriteriene for aktivering er oppfylt - fortrinnsvis når brukeren faktisk har utpekt kandidatfelt for addering eller sletting.                    
                 </p>
 
-                <a href="diagrammer/ActivityDiagram-Sok.svg" target="_blank"><img class ="resize" src="diagrammer/ActivityDiagram-Sok.svg"/></a>
+                <a href="diagrammer/ActivityDiagram-Sok.svg" target="_blank"><img class ="resize" src="diagrammer/ActivityDiagram-Sok.svg" alt="Aktivitetsdiagram av søkefunksjonalitet"/></a>
             </section>
 						
             <section>
-				      <h1 id="Problematikk ved dataendring">Problematikk ved endring av eksisterende data og struktur</h1>
+				      <h1 id="Problematikk-ved-dataendring">Problematikk ved endring av eksisterende data og struktur</h1>
 			         	<p class="lead">Funksjonaliteten for å endre data og struktur i dokumentdatabasen følger ikke prinsipper for <em>usability</em> og fremstår som forvirrende for brukeren</p>
 
-                <p>Praktisk bruk av applikasjonen viser problemer i programflyten når det gjelder hvordan det håndterer bruker-input i tilfeller hvor brukeren ønsker å utføre endringer. Når bruker trykker "Lagre endringer", skjer det ingen ting. Debug-vinduet i IDE-et avslører imidlertid en programfeil, men brukeren av applikasjonen får ingen tilbakemelding om dette, og applikasjonen gjør heller ingen endringer i databasen. Igjen bryter applikasjonen med <em>the principle of least astonishment</em>.</p>
+                <p>Praktisk bruk av applikasjonen viser problemer i programflyten når det gjelder hvordan den håndterer bruker-input i tilfeller hvor brukeren ønsker å utføre endringer. Når bruker trykker "Lagre endringer", skjer det tilsynelatende ingen ting. Debug-vinduet i IDE-et avslører imidlertid en programfeil, men brukeren av applikasjonen får ingen tilbakemelding om dette, og applikasjonen gjør heller ingen endringer i databasen. Igjen bryter applikasjonen med <em>the principle of least astonishment</em>.</p>
 
                 <p>Sekvensdiagrammet under illustrerer problemet (det tas utgangspunkt i at bruker først har søkt opp kandidatdata for endring):</p>
                 
-                <a href="diagrammer/SequenceDiagram-LagreFeil.svg" target="_blank"><img class="resize" src="diagrammer/SequenceDiagram-LagreFeil.svg"/></a>
+                <a href="diagrammer/SequenceDiagram-LagreFeil.svg" target="_blank"><img class="resize" src="diagrammer/SequenceDiagram-LagreFeil.svg" alt="Sekvensdiagram av problemer ved dataendring"/></a>
 
                 <p>Grunnen til at det ikke er mulig for brukeren å endre data uten at visse uintuitive kriterier er oppfylt, er teknisk; koblingen mot databasen inntreffer ikke der det er hensiktsmessig i denne sammenheng.</p>
 
-                <p>Aktivitetsdiagrammet nedenfor illustrerer hvordan det forutsettes at brukeren trykker "Legg til et datafelt" før det blir mulig å gjøre noen endringer i databasen. Databasetilkobling som tillater endring utføres ikke før denne knappen trykkes, og brukeren får ingen tilbakemelding om dette, eller noen indikasjon på at endringer som er forsøkt gjort før denne knappen er trykket på ikke har blitt lagret. Aktivitetene merket med rødt kan dekomponeres ytterligere, men er i dette diagrammet kortet ned for leselighetens del.</p>
+                <p>Aktivitetsdiagrammet nedenfor illustrerer hvordan det forutsettes at brukeren trykker "Legg til et datafelt" før det blir mulig å gjøre noen endringer i databasen. Databasetilkobling som tillater endring utføres ikke før denne knappen trykkes, og brukeren får ingen tilbakemelding om dette, eller noen indikasjon på at endringer som er forsøkt gjort før denne knappen er trykket på ikke har blitt lagret. Aktivitetene merket med rødt kan dekomponeres ytterligere, men er i dette diagrammet kortet ned for lesbarhetens del.</p>
                 
-                <a href="diagrammer/AktivitetsDiagram-LagreEndringer.svg" target="_blank"><img class ="resize" src="diagrammer\AktivitetsDiagram-LagreEndringer.svg" /> </a>
+                <a href="diagrammer/AktivitetsDiagram-LagreEndringer.svg" target="_blank"><img class ="resize" src="diagrammer/AktivitetsDiagram-LagreEndringer.svg" alt="Aktivitetsdiagram som illustrerer problemer ved endringer"/></a>
             </section>
 			
       			<section>
-      				<h1 id="Problematikk ved datasletting">Problematikk ved datasletting</h1>
+      				<h1 id="Problematikk-ved-datasletting">Problematikk ved datasletting</h1>
         				<p class="lead">Funksjonalitet for å slette data i dokumentdatabasen følger heller ikke prinsipper for <em>usability</em>, og fremstår som forvirrende for brukeren</p>
         				
         				<p>Bruk av applikasjonen viser igjen problemer i programflyten når det gjelder hvordan det håndterer bruker-input. Når brukeren trykker "Slett et tomt felt", får brukeren vist et nytt grensesnittvindu hvor alle tomme felt blir fremvist. Disse er representert med cellenavn fra databasen. Når brukeren så velger et datafelt og trykker "Slett det valgte feltet", skjer det ingenting. For brukeren fremstår det som om applikasjonen fryser.</p>			
         				
                 <p>Sekvensdiagrammet under illustrerer dette:</p>
 
-        				<a href="diagrammer/SequenceDiagram-Slettfunksjon.svg" target="_blank"><img class ="resize" src="diagrammer/SequenceDiagram-Slettfunksjon.svg"/></a>
+        				<a href="diagrammer/SequenceDiagram-Slettfunksjon.svg" target="_blank"><img class ="resize" src="diagrammer/SequenceDiagram-Slettfunksjon.svg" alt="Sekvensdiagram som viser problematikk ved sletting av data"/></a>
 
-                <p>Igjen inntreffer ikke koblingen mot databasen der det er hensiktsmessig. Denne koblingen skjer først der livslinjene i sekvensdiagrammet er markert med grønt.</p>
+                <p>Igjen inntreffer ikke koblingen mot databasen der det er hensiktsmessig. Denne koblingen skjer først der livslinjene i sekvensdiagrammet over er markert med grønt.</p>
             </section>
 		
       			<section>
-              <h1 id="Databasen og fantomkolonner">Databasen og fantomkolonner</h1>
+              <h1 id="Databasen-og-fantomkolonner">Databasen og fantomkolonner</h1>
                 <p class="lead">Brukers interaksjon mot databasen skaper potensielt tomme kolonner</p>
       			
-                <p>Brukeren har mulighet til å slette tomme felt, men ikke hele kolonner i databasen. Dette gjør at det blir "fantomkolonner" etter innholdet i feltene blir slettet.</p>
+                <p>Brukeren har mulighet til å slette tomme felt, men ikke hele kolonner i databasen. Dette gjør at det blir "fantomkolonner" etter innholdet i feltene blir slettet. Sletting av kolonner fordrer således, med nåværende implementasjon i applikasjonen, tredjepartsverktøy - eksempelvis Azure Storage Explorer.</p>
 
-                <a href="diagrammer/UseCase-Abstrakt.svg" target="_blank"><img class ="resize" src="diagrammer/UseCase-Abstrakt.svg"/></a>
-
-                <p>Sletting av kolonner fordrer således, med nåværende implementasjon i applikasjonen, tredjepartsverktøy - eksempelvis Azure Storage Explorer.</p> 
+                <a href="diagrammer/UseCase-Abstrakt.svg" target="_blank"><img class ="resize" src="diagrammer/UseCase-Abstrakt.svg" alt="Brukerstyringsdiagram som viser at brukeren ikke kan slette kolonner"/></a>
       			</section>
 
             <section>
-              <h1 id="Øvrige observasjoner">Øvrige observasjoner</h1>
-                <p class="lead">Vi har gjort noen observasjoner i programkode og -flyt som vi vurderer som interessante å påpeke</p>
-                <p>
+              <h1 id="Øvrige-observasjoner">Øvrige observasjoner</h1>
+                <p class="lead">Vi har gjort noen observasjoner i programkode og -flyt som vi vurderer som interessante å påpeke</p>             
                   <ul class="list-bulleted">
                       <li>Applikasjonen har en del ubrukte import-setninger. Disse gjør applikasjonen større enn nødvendig, og de bidrar til å gjøre koden mer uoversiktlig. Ubrukte importsetninger bør fjernes.</li>
                       <li>Variabelnavn er til tider lite beskrivende i koden, og bidrar til å svekke den generelle lesbarheten. Beskrivende variabelnavn bør tilstrebes <a href="#Referanser">(Martin, 2015, kap. 2)</a>. Et eksempel er <em>MainWindow</em>-objektet som sendes som parameter i <em>init</em>-metoden i <em>Controller</em>-klassen. Dette får tildelt variabelnavnet "ui". Selv om de fleste med teknisk bakgrunn antagelig vil forstå hva det er snakk om, kan lesbarheten bedres ved å være mer litt mer verbos.</li>
                       <li>Connection string'en som inneholder tilgangsinformasjonen til databasen foreligger i klartekst i en egen fil, og aksesseres av programkoden under runtime. Dette er ikke heldig - ved eksempelvis publisering til et offentlig repository, vil konfidensiell tilgangsinformasjon eksponeres for allmennheten. Denne filen burde enten vært kryptert, eller connection string'en burde forekommet i form av en systemvariabel i tjenermiljøet som så ble aksessert av koden.  
                       </li>
-                  </ul>
-                </p>
-            <section>
+                  </ul>                
+            </section>
 				
             <section>
               <h1 id="Konklusjon">Konklusjon</h1>
-                <p class="lead">Vi har belyst forbedringspotensialer innen struktur og brukerinteraksjon</p>
+                <p class="lead">Vi har belyst sentrale aspekter av applikasjonen, samt diskutert forbedringspotensialer innen struktur og brukerinteraksjon</p>
                 
-                <p>Vår analyse av programkoden og praktisk bruk av applikasjonen har avslørt noen aspekter vi har valgt å fokusere på. Det vi har funnet kan sies å ha moderat alvorlighetsgrad. Høy kohesjon er et viktig prinsipp å ivareta fra begynnelsen av for å unngå at applikasjonen utvikler seg med basis i dårlige kodekonvensjoner som så siden blir vanskelig å utbedre. I tillegg er det noen merkverdigheter rundt brukeropplevelsesaspektet ved applikasjonen, hvor brukeren må gjette hva applikasjonen har gjort og ikke gjort.</p>
+                <p>Vår analyse av programkoden og praktisk bruk av applikasjonen har avslørt noen aspekter vi har valgt å fokusere på. Det vi har funnet kan sies å ha moderat alvorlighetsgrad. Høy kohesjon er et viktig prinsipp å ivareta fra begynnelsen av for å unngå at applikasjonen utvikles med basis i dårlige kodekonvensjoner som så siden blir vanskelig å utbedre. Nå er akkurat denne applikasjonen av forholdsvis triviell art, men det finnes eksempler på dårlig tilnærminger til kodemessige "best practices" som har forvoldt menneskers død <a href="#Referanser">(Safety Research &amp; Strategies, 2013)</a>. I tillegg er det noen merkverdigheter rundt brukeropplevelsesaspektet ved applikasjonen, hvor brukeren må gjette hva applikasjonen har gjort og ikke gjort.</p>
                 
                 <p>Vi har belyst med diagrammer og tekst de punktene vi har vurdert som interessante.</p>
-            <section>
+            </section>
 
+            <section>
               <h1 id="Referanser">Litteraturreferanser</h1>          
                 <ul class="list-unstyled">
                   <li>Holmstedt, V. (2004). <em>Objektorientert systemutvikling og UML</em>. Fagbokforlaget.</li>
-                  <li>Seebach, P. (2001). <a href="http://www.ibm.com/developerworks/library/us-cranky10/us-cranky10-pdf.pdf" target="_blank"><em>The principle of least astonishment</em></a>. IBM DeveloperWorks.</li> 
                   <li>Martin, R. C. (2015). <em>Clean code: A handbook of agile software craftsmanship</em>. Prentice Hall.</li>
-              
+                  <li>Seebach, P. (2001). <a href="http://www.ibm.com/developerworks/library/us-cranky10/us-cranky10-pdf.pdf" target="_blank"><em>The principle of least astonishment</em></a>. IBM DeveloperWorks.</li>                  
+                  <li>Safety Research &amp; Strategies. (2013). <a href="http://www.safetyresearch.net/blog/articles/toyota-unintended-acceleration-and-big-bowl-%E2%80%9Cspaghetti%E2%80%9D-code"><em>Toyota unintended acceleration and the big bowl of "spaghetti" code</em></a></li>
+                </ul>
+            </section>
+
+              <section>              
               <h1>Andre kilder</h1>
                 <ul class="list-unstyled">
                   <li>Bootstrap-tema hentet fra: <a href="http://bootswatch.com/">www.bootswatch.com</a></li>
@@ -168,7 +169,6 @@
           </div>
         </div>
       </footer>
-    </div>
     </div>
     <script src="scripts/jquery-1.10.2.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
