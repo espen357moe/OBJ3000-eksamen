@@ -168,13 +168,13 @@
       ><path d="M0 0 L94 0 L94 163 L0 163 L0 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath55"
-      ><path d="M-160 -19 L320 -19 L320 38 L-160 38 L-160 -19 Z"
+      ><path d="M-166 -19 L332 -19 L332 38 L-166 38 L-166 -19 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath56"
-      ><path d="M-170 -19 L340 -19 L340 38 L-170 38 L-170 -19 Z"
+      ><path d="M-175 -19 L350 -19 L350 38 L-175 38 L-175 -19 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath57"
-      ><path d="M-141 -19 L282 -19 L282 38 L-141 38 L-141 -19 Z"
+      ><path d="M-148 -19 L296 -19 L296 38 L-148 38 L-148 -19 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath58"
       ><path d="M-132 -19 L264 -19 L264 38 L-132 38 L-132 -19 Z"
@@ -484,17 +484,17 @@
       /><line y2="101" fill="none" x1="45" clip-path="url(#clipPath54)" x2="51" y1="113"
       /><line y2="101" fill="none" x1="45" clip-path="url(#clipPath54)" x2="39" y1="113"
     /></g
-    ><g font-size="14" transform="translate(630,580)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" font-family="sans-serif" stroke="black" stroke-opacity="1"
-    ><text x="9" xml:space="preserve" y="15" clip-path="url(#clipPath55)" stroke="none"
-      >[if DB_tilkobling = true]</text
+    ><g font-size="14" transform="translate(625,577)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" font-family="sans-serif" stroke="black" stroke-opacity="1"
+    ><text x="10" xml:space="preserve" y="15" clip-path="url(#clipPath55)" stroke="none"
+      >[if DB-tilkobling == true]</text
     ></g
-    ><g font-size="14" transform="translate(638,493)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" font-family="sans-serif" stroke="black" stroke-opacity="1"
+    ><g font-size="14" transform="translate(635,491)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="10" xml:space="preserve" y="15" clip-path="url(#clipPath56)" stroke="none"
-      >[if DB_tilkobling = false ]</text
+      >[if DB-tilkobling == false ]</text
     ></g
-    ><g font-size="14" transform="translate(829,199)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" font-family="sans-serif" stroke="black" stroke-opacity="1"
-    ><text x="9" xml:space="preserve" y="15" clip-path="url(#clipPath57)" stroke="none"
-      >DB_tilkobling = true</text
+    ><g font-size="14" transform="translate(825,197)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" font-family="sans-serif" stroke="black" stroke-opacity="1"
+    ><text x="10" xml:space="preserve" y="15" clip-path="url(#clipPath57)" stroke="none"
+      >DB-tilkobling == true</text
     ></g
     ><g font-size="14" transform="translate(290,181)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="9" xml:space="preserve" y="15" clip-path="url(#clipPath58)" stroke="none"

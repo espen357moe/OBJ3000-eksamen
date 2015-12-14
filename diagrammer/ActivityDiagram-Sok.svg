@@ -213,16 +213,16 @@
       ><path d="M-113 -19 L226 -19 L226 38 L-113 38 L-113 -19 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath70"
-      ><path d="M-86 -19 L172 -19 L172 38 L-86 38 L-86 -19 Z"
+      ><path d="M-91 -19 L182 -19 L182 38 L-91 38 L-91 -19 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath71"
-      ><path d="M-86 -18 L172 -18 L172 36 L-86 36 L-86 -18 Z"
+      ><path d="M-94 -18 L188 -18 L188 36 L-94 36 L-94 -18 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath72"
       ><path d="M-76 -19 L152 -19 L152 38 L-76 38 L-76 -19 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath73"
-      ><path d="M-187 -20 L374 -20 L374 40 L-187 40 L-187 -20 Z"
+      ><path d="M-196 -19 L392 -19 L392 38 L-196 38 L-196 -19 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath74"
       ><path d="M-70 -19 L140 -19 L140 38 L-70 38 L-70 -19 Z"
@@ -637,21 +637,21 @@
     ><text x="10" xml:space="preserve" y="15" clip-path="url(#clipPath69)" stroke="none"
       >Ingen flere søk</text
     ></g
-    ><g font-size="14" transform="translate(794,365)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" font-family="sans-serif" stroke="black" stroke-opacity="1"
+    ><g font-size="14" transform="translate(791,362)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="9" xml:space="preserve" y="15" clip-path="url(#clipPath70)" stroke="none"
-      >[if treff &gt; 0]</text
+      >[if treff  &gt; 0]</text
     ></g
-    ><g font-size="14" transform="translate(883,459)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" font-family="sans-serif" stroke="black" stroke-opacity="1"
+    ><g font-size="14" transform="translate(878,455)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="9" xml:space="preserve" y="15" clip-path="url(#clipPath71)" stroke="none"
-      >[if treff = 0]</text
+      >[if treff == 0]</text
     ></g
     ><g font-size="14" transform="translate(202,199)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="9" xml:space="preserve" y="15" clip-path="url(#clipPath72)" stroke="none"
       >Vil endre</text
     ></g
-    ><g font-size="14" transform="translate(672,144)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" font-family="sans-serif" stroke="black" stroke-opacity="1"
-    ><text x="9" xml:space="preserve" y="15" clip-path="url(#clipPath73)" stroke="none"
-      >[if søkekritere.length = null]</text
+    ><g font-size="14" transform="translate(665,142)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" font-family="sans-serif" stroke="black" stroke-opacity="1"
+    ><text x="10" xml:space="preserve" y="15" clip-path="url(#clipPath73)" stroke="none"
+      >[if søkekritere.length == null]</text
     ></g
     ><g font-size="14" transform="translate(220,160)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="10" xml:space="preserve" y="15" clip-path="url(#clipPath74)" stroke="none"
