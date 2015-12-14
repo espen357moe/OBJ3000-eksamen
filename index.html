@@ -98,13 +98,13 @@
       				<h1 id="Problematikk ved datasletting">Problematikk ved datasletting</h1>
         				<p class="lead">Funksjonalitet for å slette data i dokumentdatabasen følger heller ikke prinsipper for <em>usability</em>, og fremstår som forvirrende for brukeren</p>
         				
-        				<p>Bruk av programmet viser igjen problemer i programflyten når det gjelder hvordan det håndterer bruker-input. Når brukeren trykker "Slett et tomt felt", får brukeren vist et nytt grensesnittvindu hvor alle tomme felt blir fremvist. Disse er representert med "cellenavn" fra databasen. Da brukeren nå velger et datafelt for så å trykke "Slett det valgte feltet" skjer det ingenting. Det virker som porgrammet fryser.</p>			
+        				<p>Bruk av programmet viser igjen problemer i programflyten når det gjelder hvordan det håndterer bruker-input. Når brukeren trykker "Slett et tomt felt", får brukeren vist et nytt grensesnittvindu hvor alle tomme felt blir fremvist. Disse er representert med cellenavn fra databasen. Når brukeren så velger et datafelt og trykker "Slett det valgte feltet", skjer det ingenting. For brukeren fremstår det som om applikasjonen fryser.</p>			
         				
-                <p> Sekvensdiagrammet under illustrerer denne problematikken.</p>
+                <p>Sekvensdiagrammet under illustrerer dette:</p>
 
-        				<a href="diagrammer/SequenceDiagram-Slettfunksjon.svg" target="_blank"><img class ="resize" src="diagrammer/SequenceDiagram-Slettfunksjon.svg" /></a>
+        				<a href="diagrammer/SequenceDiagram-Slettfunksjon.svg" target="_blank"><img class ="resize" src="diagrammer/SequenceDiagram-Slettfunksjon.svg"/></a>
 
-                <p> Grunnen til at det ikke er mulig for brukerer å slette tomme data uten at visse uintuitive kriterier er oppfylt, er teknisk; koblingen mot databasen inntreffer ikke der det er hensiktsmessig i denne sammenheng. Denne koblingen skjer der livslinjene i sekvensdiagrammet er markert med grønt.</p>
+                <p> Grunnen til at det ikke er mulig for brukerer å slette tomme data uten at visse uintuitive kriterier er oppfylt, er teknisk; koblingen mot databasen inntreffer ikke der det er hensiktsmessig i denne sammenheng. Denne koblingen skjer først der livslinjene i sekvensdiagrammet er markert med grønt.</p>
             </section>
 
 			
