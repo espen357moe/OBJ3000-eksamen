@@ -1442,6 +1442,10 @@ ol ol {
   padding-left: 0;
   list-style: none;
 }
+.list-bulleted {
+  padding-left: 1em;
+  list-style-type: square;
+}
 .list-inline {
   padding-left: 0;
   list-style: none;
