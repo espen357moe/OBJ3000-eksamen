@@ -29,7 +29,7 @@
                 <li class="divider"></li>
 
                 <li><a href="#Lav kohesjon">Lav kohesjon</a></li>
-				<li><a href="#Søkefunksjon">Søkefunksjon</a></li>
+				<li><a href="#Søkefunksjon">Diskusjon rundt søkefunksjonalitet</a></li>
                 <li><a href="#Problematikk ved dataendring">Problematikk ved dataendring</a></li>
 				<li><a href="#Problematikk ved datasletting"> Problematikk ved datasletting</a></li>
                 <li><a href="#Referanser">Referanser</a></li>
@@ -60,46 +60,46 @@
                 <p>Følgende klassediagram illustrerer problemet:</p>
                 <a href="diagrammer/MVC-problematikk.svg" target="_blank"><img class ="resize" src="diagrammer/MVC-problematikk.svg"/></a>
                 <p>De nødvendige håndgrepene for å heve kohesjonsnivået er forholdsvis enkle: <em>model</em> bør skilles ut i en separat pakke fremfor å inkluderes i en pakke hvor det også befinner seg programlogikk. Disse logikklassene burde forøvrig også vært flyttet til <em>controller</em>-pakken. En strammere tilnærming til MVC-paradigmet ville således medført høyere kohesjonsnivå i programkoden <a href="#Referanser">(Holmstedt, 2004, s. 269)</a>.</p>
-              </section>
-
-			<section>
-			 <h1 id="Søkefunksjon">Ilustrering  av søk</h1>
-			 <p class="lead">Søkefunksjonen funger men er litt forvirrende</p>
-
-
-                <p>Før brukeren har utført et søk er "Slett et tomt felt" og "Legg til et datafelt" -knappene synelige. Dette gjør at brukeren har mulighet til å trykke på disse uten at de har noen funksjon, som kan føre til forvirring. Knappene er markert med rød bakgrunn i diagrammet, og er ikke interessante for resten av søkefunksjonen.
-					Dette kunne vært løst på samme måte som "Lagre endringer" knappen er programert,denne knappen blir ikke akktivert før den trengs.</p>
-					<P> Følgende aktivitetsdiagram illustrerer søkfunksjonen.
-                <p><a href="diagrammer/ActivityDiagram-Sok.svg" target="_blank"><img class ="resize" src="diagrammer/ActivityDiagram-Sok.svg"/></a>
-				<p></p>
             </section>
-			
-			
+
             <section>
-				      <h1 id="Problematikk ved dataendring">Problematikk ved dataendring</h1>
+              <h1 id="Søkefunksjon">Diskusjon rundt søkefunksjonalitet</h1>
+                <p class="lead">Søkefunksjonen fungerer, men har innslag av dårlig <i>usability</i></p>
+
+                <p>Før brukeren gjør et søk, er knappene for å slette- og legge til datafelt aktive, og reagerer visuelt på brukerinteraksjon. Dette kan skape forvirring da brukeren kan få inntrykk av at de faktisk utfører handlinger. Dette bryter med <em>the principle of least astonishment</em>, som vektlegger at grensesnittkontroller og programflyt bør oppføre seg slik brukere flest forventer <a href="#Referanser">(Seebach, 2001)</a>. Dette burde vært løst ved å markere knappene som inaktive inntil kriteriene for aktivering er oppfylt - fortrinnsvis når brukeren faktisk har utpekt kandidatfelt for addering eller sletting.                    
+                </p>
+
+                <a href="diagrammer/ActivityDiagram-Sok.svg" target="_blank"><img class ="resize" src="diagrammer/ActivityDiagram-Sok.svg"/></a>
+            </section>
+						
+            <section>
+				      <h1 id="Problematikk ved dataendring">Problematikk ved endring av eksisterende data</h1>
 			         	<p class="lead">Funksjonaliteten for å endre data og struktur i dokumentdatabasen følger ikke prinsipper for <em>usability</em> og fremstår som forvirrende for brukeren</p>
 
-                <p>Bruk av programmet viser problemer i programflyten når det gjelder hvordan det håndterer bruker-input i tilfeller hvor brukeren ønsker å endre data. 
-				Når bruker trykker "Lagre endringer", skjer det ingen ting. Debug-vinduet i IDE-et avslører en programfeil, men brukeren av programmet får ingen tilbakemelding om dette, 
-				og programmet gjør ingen endringer i databasen. Dette bryter med <em>the principle of least astonishment</em>, 
-				som vektlegger at grensesnittkontroller og programflyt bør oppføre seg slik brukere flest forventer <a href="#Referanser">(Seebach, 2001)</a>.</p>
+                <p>Bruk av programmet viser problemer i programflyten når det gjelder hvordan det håndterer bruker-input i tilfeller hvor brukeren ønsker å endre data. Når bruker trykker "Lagre endringer", skjer det ingen ting. Debug-vinduet i IDE-et avslører en programfeil, men brukeren av programmet får ingen tilbakemelding om dette, og programmet gjør heller ingen endringer i databasen. Igjen bryter programmet med <em>the principle of least astonishment</em>.</p>
+
                 <p>Sekvensdiagrammet under illustrerer problemet (det tas utgangspunkt i at bruker først har søkt opp data som skal endres):</p>
+                
                 <a href="diagrammer/SequenceDiagram-LagreFeil.svg" target="_blank"><img class ="resize" src="diagrammer/SequenceDiagram-LagreFeil.svg" /></a>
+
                 <p>Grunnen til at det ikke er mulig for brukeren å endre data uten at visse uintuitive kriterier er oppfylt, er teknisk; koblingen mot databasen inntreffer ikke der det er hensiktsmessig i denne sammenheng.</p>
+
                 <p>Aktivitetsdiagrammet nedenfor illustrerer hvordan det forutsettes at brukeren trykker "Legg til et datafelt" før det blir mulig å gjøre noen endringer i databasen. Databasetilkobling som tillater endring utføres ikke før denne knappen trykkes, og brukeren får ingen tilbakemelding om dette, eller noen indikasjon på at endringer som er forsøkt gjort før denne knappen er trykket på ikke har blitt lagret. Aktivitetene merket med rødt kan utledes ytterligere, men er i dette diagrammet kortet ned for leselighetens del.</p>
-                <p><a href="diagrammer/AktivitetsDiagram-LagreEndringer.svg" target="_blank"><img class ="resize" src="diagrammer\AktivitetsDiagram-LagreEndringer.svg" /> </a></p>
+                
+                <a href="diagrammer/AktivitetsDiagram-LagreEndringer.svg" target="_blank"><img class ="resize" src="diagrammer\AktivitetsDiagram-LagreEndringer.svg" /> </a>
             </section>
 			
-			<section>
-				<h1 id="Problematikk ved datasletting"> Problematikk ved datasletting</h1>
-				<p class="lead"> Funksjonaliteten for å slette data i dokumentdatabasen følger heller ikke prinsipper for <em>usability</em> og fremstår som forvirrende for brukeren. Det er mye av samme problematikk her som nevnt over</p>
-				
-				<P> Bruk av programmet viser igjen problemer i programflyten når det gjelder hvordan det håndterer bruker-input.
-				Når brukeren trykker "Slett et datafelt" får brukeren vist et nytt GUI, alle feltene som er tomme blir vist her. Disse er representert med "cellenavn" fra databasen.
-				Da brukeren nå velger et datafelt for så å trykke "Slett det valgte feltet" skjer det ingenting. Det virker som porgrammet fryser.			
-				<p> Sekvensdiagrammet under illustrerer denne problematikken.
-				<a href="diagrammer/SequenceDiagram-Slettfunksjon.svg" target="_blank"><img class ="resize" src="diagrammer/SequenceDiagram-Slettfunksjon.svg" /></a>
-			<p> Grunnen til at det ikke er mulig for brukerer å slette tomme data uten at visse uintuitive kriterier er oppfylt, er teknisk; koblingen mot databasen inntreffer ikke der det er hensiktsmessig i denne sammenheng. Denne koblingen skjer der livslinjene i sekvensdiagrammet er markert med grøndt.</p>
+      			<section>
+      				<h1 id="Problematikk ved datasletting"> Problematikk ved datasletting</h1>
+        				<p class="lead"> Funksjonaliteten for å slette data i dokumentdatabasen følger heller ikke prinsipper for <em>usability</em> og fremstår som forvirrende for brukeren. Det er mye av samme problematikk her som nevnt over</p>
+        				
+        				<P> Bruk av programmet viser igjen problemer i programflyten når det gjelder hvordan det håndterer bruker-input.
+        				Når brukeren trykker "Slett et datafelt" får brukeren vist et nytt GUI, alle feltene som er tomme blir vist her. Disse er representert med "cellenavn" fra databasen.
+        				Da brukeren nå velger et datafelt for så å trykke "Slett det valgte feltet" skjer det ingenting. Det virker som porgrammet fryser.			
+        				<p> Sekvensdiagrammet under illustrerer denne problematikken.
+        				<a href="diagrammer/SequenceDiagram-Slettfunksjon.svg" target="_blank"><img class ="resize" src="diagrammer/SequenceDiagram-Slettfunksjon.svg" /></a>
+                <p> Grunnen til at det ikke er mulig for brukerer å slette tomme data uten at visse uintuitive kriterier er oppfylt, er teknisk; koblingen mot databasen inntreffer ikke der det er hensiktsmessig i denne sammenheng. Denne koblingen skjer der livslinjene i sekvensdiagrammet er markert med grønt.</p>
+            </section>
 			
 				
             <section>
